@@ -103,6 +103,102 @@ print_r($_POST);
 
 }
 
+class homepage extends page 
+
+{
+
+public function get()
+
+{
+
+$form ='<form method ="post" enctype="multipart/form-data">';
+$form .='<input type="file" name="fileToUpload" id="fileToUpload">';
+$form .='<input type="submit" value="Upload" name="submit">';
+$form .='</form>';
+$this->html .='<h1>Upload Form</h1>';
+$this->html .=$form;
+
+}
+
+public function post()
+
+{
+
+$name = $_FILES['fileToUpload']['name'];
+$temp_name = $_FILES['fileToUpload']['temp_name'];
+if (isset($name))
+
+{
+
+$location = 'upload/';
+$upload_file_path = $location . $name;
+$table = new htmlTable();
+
+if (move_uploaded_file($temp_name, $upload_file_path))
+
+{
+
+$table->print_table($upload_file_path);
+
+}
+
+}
+
+else
+
+{
+
+echo 'You should select a file to upload';
+
+}
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
