@@ -130,7 +130,7 @@ if (isset($name))
 
 {
 
-$location = 'upload/';
+$location = '/afs/cad.njit.edu/u/s/s/sss329/public_html/project1/Upload/';
 $upload_file_path = $location . $name;
 $table = new htmlTable();
 
@@ -153,6 +153,64 @@ echo 'You should select a file to upload';
 }
 }
 }
+
+class htmlTable extends page 
+
+{
+
+protected function print_header($cell)
+
+{
+
+$this->html .="<th>";
+$this->html .= htmlspecialchars($cell);
+$this->html .="</th>";
+
+}
+
+protected function print_row($cell)
+
+{
+
+$this->html .="<td>";
+$this->html .=htmlspecialchars($cell);
+$this->html .="</td>";
+
+}
+
+protected function print_line_by_line($f, $flag)
+
+{
+
+while(($line = fgetcsv($f))!==false)
+
+{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
