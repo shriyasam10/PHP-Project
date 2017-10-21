@@ -4,29 +4,18 @@ ini_set('display_errors','On');
 error_reporting(E_ALL);
 
 class Manage
-
 {
-
 public static function autoload($class)
-
 {
-
-include $class .'.php';
-
+include $class . '.php';
 }
-
 }
-
 spl_autoload_register(array('Manage','autoload'));
-
 $obj= new main();
 
 class main 
-
 {
-
-public function _construct()
-
+public function __construct()
 {
 
 $pageRequest = 'homepage';
@@ -66,22 +55,22 @@ abstract class page
 
 protected $html;
 
-public function _construct()
+public function __construct()
 
 {
 
 $this->html .='<html>';
-$this->html .='<link rel="stylesheet"href="styles.css">';
+$this->html .='<link rel="stylesheet" href="styles.css">';
 $this->html .='<body>';
 
 }
 
-public function _destruct()
+public function __destruct()
 
 {
 
 $this->html .='</body></html>';
-stringFunctions::printThis(this->html);
+stringFunctions::printThis($this->html);
 
 }
 
@@ -130,7 +119,7 @@ if (isset($name))
 
 {
 
-$location = '/afs/cad.njit.edu/u/s/s/sss329/public_html/project1/Upload/';
+$location = "Upload/";
 $upload_file_path = $location . $name;
 $table = new htmlTable();
 
@@ -260,7 +249,6 @@ return strLen($text);
 }
 
 }
-
 ?>
 
 
