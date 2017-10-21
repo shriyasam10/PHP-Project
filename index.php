@@ -186,6 +186,88 @@ while(($line = fgetcsv($f))!==false)
 
 {
 
+$this->html .="<tr>";
+
+foreach ($line as $cell)
+
+{
+
+if ($flag)
+
+{
+
+$this->print_header($cell);
+
+}
+
+else
+
+{
+
+$this->print_row($cell);
+
+}
+
+}
+
+$flag = false;
+$this->html .="</tr>";
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
