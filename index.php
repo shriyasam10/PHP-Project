@@ -217,6 +217,75 @@ $this->html .="</tr>";
 
 }
 
+public function print_table($path)
+
+{
+
+$this->html .='<html><body><table border ="1">';
+if (file_exists($path))
+
+{
+
+$f = fopen($path, "r");
+$flag = true;
+$this->print_line_by_line($f,$flag);
+fclose($f);
+
+}
+
+$this->html .="\n</table></body></html>";
+
+}
+
+}
+
+class stringFunctions
+
+{
+
+static public function printThis($inputText)
+
+{
+
+return print($inputText);
+
+}
+
+static public function stringLength($text)
+
+{
+
+return strLen($text);
+
+}
+
+}
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
