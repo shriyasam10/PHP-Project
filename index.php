@@ -11,6 +11,8 @@ include $class . '.php';
 }
 }
 spl_autoload_register(array('Manage','autoload'));
+
+//Instantiating object 
 $obj= new main();
 
 class main 
@@ -20,6 +22,7 @@ public function __construct()
 
 $pageRequest = 'homepage';
 
+//Checking parameters
 if (isset($_REQUEST['page']))
 
 {
@@ -60,6 +63,7 @@ public function __construct()
 {
 
 $this->html .='<html>';
+//Link to styles.css
 $this->html .='<link rel="stylesheet" href="styles.css">';
 $this->html .='<body>';
 
@@ -99,7 +103,7 @@ class homepage extends page
 public function get()
 
 {
-
+//Upload form strucrure 
 $form ='<form method ="post" enctype="multipart/form-data">';
 $form .='<input type="file" name="fileToUpload" id="fileToUpload">';
 $form .='<input type="submit" value="Upload" name="submit">';
@@ -112,13 +116,13 @@ $this->html .=$form;
 public function post()
 
 {
-
+//Selection of csv file
 $name = $_FILES['fileToUpload']['name'];
 $temp_name = $_FILES['fileToUpload']['tmp_name'];
 if (isset($name))
 
 {
-
+//Saving csv file to directory Upload
 $location = "Upload/";
 $upload_file_path = $location . $name;
 $table = new htmlTable();
@@ -146,7 +150,7 @@ echo 'You should select a file to upload';
 class htmlTable extends page 
 
 {
-
+//Table heading
 protected function print_header($cell)
 
 {
@@ -156,7 +160,7 @@ $this->html .= htmlspecialchars($cell);
 $this->html .="</th>";
 
 }
-
+//Print rows of table
 protected function print_row($cell)
 
 {
@@ -205,7 +209,7 @@ $this->html .="</tr>";
 }
 
 }
-
+//Function to print csv file in the form of table
 public function print_table($path)
 
 {
